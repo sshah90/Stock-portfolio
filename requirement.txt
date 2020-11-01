@@ -1,0 +1,2 @@
+yfinance==0.1.55
+streamlit==0.70.0
