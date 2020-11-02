@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 
 #Get the stock quote 
-df = web.DataReader('AAPL', data_source='yahoo', start='2012-01-01', end='2019-12-17') 
+df = web.DataReader('AAPL', data_source='yahoo', start='2020-01-01', end='2020-10-01') 
 
 #Show the data 
 df
@@ -108,7 +108,7 @@ plt.show()
 valid
 
 #Get the quote
-apple_quote = web.DataReader('AAPL', data_source='yahoo', start='2012-01-01', end='2019-12-17')
+apple_quote = web.DataReader('AAPL', data_source='yahoo', start='2020-01-01', end='2020-10-01')
 
 #Create a new dataframe
 new_df = apple_quote.filter(['Close'])
@@ -139,5 +139,5 @@ pred_price = scaler.inverse_transform(pred_price)
 print(pred_price)
 
 #Get the quote
-apple_quote2 = web.DataReader('AAPL', data_source='yahoo', start='2019-12-18', end='2019-12-18')
+apple_quote2 = web.DataReader('AAPL', data_source='yahoo', start='2020-10-02', end='2020-11-01')
 print(apple_quote2['Close'])
