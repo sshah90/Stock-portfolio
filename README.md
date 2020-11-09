@@ -27,5 +27,5 @@ docker run \
     -p 8501:8501 \
     -e API_KEY="YOUR_API_KEY"\
     -v /your/path:/data\
-    stock:test 
+    stock:1.0.0 
 ```
