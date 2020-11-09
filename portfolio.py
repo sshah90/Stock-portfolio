@@ -41,7 +41,6 @@ print ('The annualised mean return of stock is', portfolio_return,
        'and the annualised volatility is', portfolio_std_dev) 
 
 
-
 """
 Different weights are given to the stocks in the portfolio to give the person different combinations 
 for voltility and mean return. This would show a graph with all the variations. It would also
@@ -55,7 +54,6 @@ stocks = sorted(list_stock)
 
 #download daily price data for each of the stocks in the portfolio
 data = web.DataReader(stocks,data_source='yahoo',start='2013-01-01')['Adj Close']
-
 
 def monte(data):
     data.sort_index(inplace=True)
@@ -522,32 +520,3 @@ fig = go.Figure(data=data, layout=layout)
 iplot(fig)
 
 fig.write_html('fifth_figure.html', auto_open=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
