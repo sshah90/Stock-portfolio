@@ -16,11 +16,10 @@ These instructions will cover usage information about running app locally.
 ### Build Image
 ```bash
 git clone https://github.com/sshah90/stock-portfolio.git
-
 cd stock-portfolio/
 docker build -t stock:1.0.0 .
 ```
-### Run Image
+### Run Image (Tested in Mac only)
 
 ```bash
 docker run \
@@ -29,3 +28,4 @@ docker run \
     -v /your/path:/data\
     stock:1.0.0 
 ```
+If everything works fine then you should able to see dashboard at `localhost:8501`.
