@@ -1,5 +1,4 @@
 # Stock-Portfolio 
---------
 
 - Python app for Stock-Portfolio dashboard using [yahoo finance APIs](https://github.com/ranaroussi/yfinance) and [Streamlit](https://www.streamlit.io/)
 - Dashboard will accept different parameters from user and give analysis for tickers.
