@@ -17,7 +17,7 @@ portfolio_df = pd.read_excel('Sample stocks acquisition dates_costs.xlsx')
 list_stock = portfolio_df['Ticker'].values.tolist()
 stocks = sorted(list_stock)
 
-#set array holding portfolio weights of each stock
+# set array holding portfolio weights of each stock
 weights = np.asarray([0.5,0.1,0.15,0.1,0.05,0.02,0.02,0.06])
 
 #download daily price data for each of the stocks in the portfolio
@@ -32,14 +32,13 @@ returns = data.pct_change()
 mean_daily_returns = returns.mean()
 cov_matrix = returns.cov()
 
-#calculate annualised portfolio return
+# calculate annualised portfolio return
 portfolio_return = round(np.sum(mean_daily_returns * weights) * 252,2)
-#calculate annualised portfolio volatility
+# calculate annualised portfolio volatility
 portfolio_std_dev = round(np.sqrt(np.dot(weights.T,np.dot(cov_matrix, weights))) * np.sqrt(252),2)
 
 print ('The annualised mean return of stock is', portfolio_return, 
        'and the annualised volatility is', portfolio_std_dev) 
-
 
 """
 Different weights are given to the stocks in the portfolio to give the person different combinations 
@@ -83,12 +82,12 @@ def monte(data):
         portfolio_return = np.sum(mean_daily_returns * weights) * 252
         portfolio_std_dev = np.sqrt(np.dot(weights.T,np.dot(cov_matrix, weights))) * np.sqrt(252)
         
-        #store results in results array
+        # store results in results array
         results[0,i] = portfolio_return
         results[1,i] = portfolio_std_dev
-        #store Sharpe Ratio (return / volatility) - risk free rate element excluded for simplicity
+        # store Sharpe Ratio (return / volatility) - risk free rate element excluded for simplicity
         results[2,i] = results[0,i] / results[1,i]
-        #iterate through the weight vector and add data to results array
+        # iterate through the weight vector and add data to results array
         for j in range(len(weights)):
             results[j+3,i] = weights[j]
         
@@ -101,7 +100,7 @@ def monte(data):
 
 results_frame = monte(data)
 
-#locate position of portfolio with highest Sharpe Ratio
+# locate position of portfolio with highest Sharpe Ratio
 max_sharpe_port = results_frame.iloc[results_frame['sharpe'].idxmax()]
 #locate positon of portfolio with minimum standard deviation
 min_vol_port = results_frame.iloc[results_frame['stdev'].idxmin()]
@@ -174,7 +173,7 @@ def get(tickers, startdate, enddate):
 all_data = get(tickers, stocks_start, stocks_end)
 
  
-   
+
 # Also only pulling the ticker, date and adj. close columns for our tickers.
 adj_close = all_data[['Adj Close']].reset_index()
 
@@ -313,7 +312,7 @@ merged_portfolio_sp_latest_YTD_sp = merged_portfolio_sp_latest_YTD_sp(merged_por
 
 
 
-#Assessing where positions are at vs highest close
+# Assessing where positions are at vs highest close
 
 # Need to factor in that some positions were purchased much more recently than others.
 # Join adj_close dataframe with portfolio in order to have acquisition date.
@@ -396,8 +395,8 @@ iplot(fig)
 fig.write_html('first_figure.html', auto_open=True)
 
 
-#FINAL
-#Trailing stop Chart
+# FINAL
+# Trailing stop Chart
 # Current Share Price versus Closing High Since Purchased
 trace1 = go.Bar(
     x = merged_portfolio_sp_latest_YTD_sp_closing_high['Ticker'][0:10],
