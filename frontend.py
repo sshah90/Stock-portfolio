@@ -322,12 +322,22 @@ if choose_options == "Personalized Portfolio":
             """
             st.write(fig2)
         if choose_options_personalized == "Analysis":
-            """### Portfolio Summary"""
+            """## Portfolio Summary"""
             fig_1, fig_2, fig_3, fig_4, fig_5 = analysis()
+            
+            """### YTD Return vs S&P 500 YTD"""
             st.plotly_chart(fig_1, use_container_width=True)
+            
+            """### Adj Close % off of High"""
             st.plotly_chart(fig_2, use_container_width=True)
+            
+            """### Total Return vs S&P 500"""
             st.plotly_chart(fig_3, use_container_width=True)
+            
+            """### Gain/Loss Total Return vs S&P 500"""
             st.plotly_chart(fig_4, use_container_width=True)
+            
+            """### Total Cumulative Investments Over Time"""
             st.plotly_chart(fig_5, use_container_width=True)
 
             checkbox_monte = st.checkbox(
@@ -352,10 +362,10 @@ if choose_options == "Personalized Portfolio":
                 """
                 ### Summary of portfolio and weight of stocks where sharpe ratio is the highest (Red Star)
                 """
-                st.dataframe(max_sharpe_port.to_frame().T)
+                st.dataframe(max_sharpe_port.to_frame().T.assign(hack="").set_index("hack"))
                 """
                 ### Summary of portfolio and weight of stocks that has the low volatility (Green Star)
                 """
-                st.dataframe(min_vol_port.to_frame().T)
+                st.dataframe(min_vol_port.to_frame().T.assign(hack="").set_index("hack"))
     else:
         st.title("Sorry! I couldn't find any data, please update personal stock list")

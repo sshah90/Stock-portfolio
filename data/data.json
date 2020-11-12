@@ -3,7 +3,7 @@
     "stock_list": [
         {
             "ticker": "AAPL",
-            "acquisition_date": "2020-02-23",
+            "acquisition_date": "2020-02-24",
             "quantity": 125,
             "unit_cost": 65.4,
             "cost_basis": 8175.0
@@ -23,29 +23,22 @@
             "cost_basis": 8499.0
         },
         {
-            "ticker": "MTCH",
-            "acquisition_date": "2019-12-19",
-            "quantity": 600,
-            "unit_cost": 13.63,
-            "cost_basis": 8178.0
-        },
-        {
             "ticker": "NFLX",
-            "acquisition_date": "2020-08-15",
+            "acquisition_date": "2020-08-17",
             "quantity": 75,
             "unit_cost": 108.71,
             "cost_basis": 8153.25
         },
         {
             "ticker": "WMT",
-            "acquisition_date": "2020-01-25",
+            "acquisition_date": "2020-01-27",
             "quantity": 125,
             "unit_cost": 68.3,
             "cost_basis": 8537.5
         },
         {
             "ticker": "FB",
-            "acquisition_date": "2020-05-03",
+            "acquisition_date": "2020-05-04",
             "quantity": 150,
             "unit_cost": 53.32,
             "cost_basis": 7998.0
@@ -58,11 +51,11 @@
             "cost_basis": 8185.5
         },
         {
-            "ticker": "PFE",
-            "acquisition_date": "2020-06-04",
-            "quantity": 225,
-            "unit_cost": 36.38,
-            "cost_basis": 8185.5
+            "ticker": "MTCH",
+            "acquisition_date": "2019-12-19",
+            "quantity": 600,
+            "unit_cost": 13.63,
+            "cost_basis": 8178.0
         }
     ]
 }

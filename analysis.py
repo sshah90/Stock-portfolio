@@ -373,8 +373,7 @@ def analysis():
         / merged_portfolio_sp_latest_YTD_sp_closing_high["Closing High Adj Close"]
         - 1
     )
-    # print(merged_portfolio_sp_latest_YTD_sp_closing_high.head())
-
+   
     trace1 = go.Bar(
         x = merged_portfolio_sp_latest_YTD_sp_x['Ticker'][0:10],
         y = merged_portfolio_sp_latest_YTD_sp_x['Share YTD'][0:10],
@@ -387,11 +386,11 @@ def analysis():
         
     data = [trace1, trace2]
 
-    layout = go.Layout(title = 'YTD Return vs S&P 500 YTD'
+    layout = go.Layout(title = ''
         , barmode = 'group'
         , yaxis=dict(title='Returns', tickformat=".2%")
         , xaxis=dict(title='Ticker')
-        , legend=dict(x=.8,y=1)
+        , legend=dict(orientation="h",yanchor="bottom",y=1.02,xanchor="right",x=1)
         )
 
     fig_1 = go.Figure(data=data, layout=layout)
@@ -404,11 +403,11 @@ def analysis():
         
     data = [trace1]
 
-    layout = go.Layout(title = 'Adj Close % off of High'
+    layout = go.Layout(title = ''
         , barmode = 'group'
         , yaxis=dict(title='% Below Adj Close High', tickformat=".2%")
         , xaxis=dict(title='Ticker')
-        , legend=dict(x=.8,y=1)
+        , legend=dict(orientation="h",yanchor="bottom",y=1.02,xanchor="right",x=1)
         )
 
     fig_2 = go.Figure(data=data, layout=layout)
@@ -426,11 +425,11 @@ def analysis():
         
     data = [trace1, trace2]
 
-    layout = go.Layout(title = 'Total Return vs S&P 500'
+    layout = go.Layout(title = ''
         , barmode = 'group'
         , yaxis=dict(title='Returns', tickformat=".2%")
         , xaxis=dict(title='Ticker', tickformat=".2%")
-        , legend=dict(x=.8,y=1)
+        , legend=dict(orientation="h",yanchor="bottom",y=1.02,xanchor="right",x=1)
         )
 
     fig_3 = go.Figure(data=data, layout=layout)
@@ -454,12 +453,12 @@ def analysis():
 
     data = [trace1, trace2, trace3]
 
-    layout = go.Layout(title = 'Gain / (Loss) Total Return vs S&P 500'
+    layout = go.Layout(title = ''
         , barmode = 'group'
         , yaxis=dict(title='Gain / (Loss) ($)')
         , yaxis2=dict(title='Ticker Return', overlaying='y', side='right', tickformat=".2%")
         , xaxis=dict(title='Ticker')
-        , legend=dict(x=.75,y=1)
+        , legend=dict(orientation="h",yanchor="bottom",y=1.02,xanchor="right",x=1)
         )
 
     fig_4 = go.Figure(data=data, layout=layout)
@@ -489,14 +488,13 @@ def analysis():
 
     data = [trace1, trace2, trace3, trace4]
 
-    layout = go.Layout(title = 'Total Cumulative Investments Over Time'
+    layout = go.Layout(title = ''
         , barmode = 'group'
         , yaxis=dict(title='Returns')
         , xaxis=dict(title='Ticker')
-        , legend=dict(x=.4,y=1)
+        , legend=dict(orientation="h",yanchor="bottom",y=1.02,xanchor="right",x=1)
         , yaxis2=dict(title='Cum ROI Mult', overlaying='y', side='right')               
         )
 
     fig_5 = go.Figure(data=data, layout=layout)
-
     return(fig_1,fig_2,fig_3,fig_4,fig_5)
