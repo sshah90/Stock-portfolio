@@ -1,6 +1,8 @@
 import warnings
 from fbprophet import Prophet
 from fbprophet.plot import plot_plotly
+from fbprophet.plot import add_changepoints_to_plot
+
 
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
@@ -17,4 +19,7 @@ class predict(object):
         future = self.model.make_future_dataframe(periods=period)
         forecast = self.model.predict(future)
         fig = plot_plotly(self.model, forecast)
-        return fig
+        fig2 = self.model.plot_components(forecast)
+        fig3 = self.model.plot(forecast)
+        a = add_changepoints_to_plot(fig3.gca(), self.model, forecast)
+        return (fig, fig2,fig3)

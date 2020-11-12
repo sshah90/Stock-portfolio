@@ -20,6 +20,7 @@ from PIL import Image
 from info import info_list
 from news import news
 from predict import predict
+from analysis import analysis,monte
 
 yf.pdr_override()
 st.set_option("deprecation.showPyplotGlobalUse", False)
@@ -43,7 +44,7 @@ def infopage():
                 return None
 
 
-@st.cache
+@st.cache(allow_output_mutation=True)
 def load_data(ticker, start, end):
     data = pdr.get_data_yahoo(ticker, start=start, end=end, interval="1d")
     return data
@@ -205,6 +206,7 @@ choose_options = st.sidebar.radio(
     ["Home Page", "Personalized Portfolio", "Update Personal Stock List"],
 )
 
+
 if choose_options == "Home Page":
     infopage()
     ticker = homepage()
@@ -266,7 +268,7 @@ if choose_options == "Personalized Portfolio":
         all_stock_metadata = json.load(f)["stock_list"]
         all_tickers = [tickers["ticker"] for tickers in all_stock_metadata]
         ticker = st.selectbox(
-            "Select the ticker",
+            "Please Select the Ticker from your stock",
             all_tickers,
             index=0,
         ).upper()
@@ -274,18 +276,71 @@ if choose_options == "Personalized Portfolio":
             "Options",
             ["Predictions", "Analysis"],
         )
-        ticker_obj = get_ticker_object(ticker)
-        ticker_info = ticker_obj.info
         if choose_options_personalized == "Predictions":
-            period = st.slider("Future Days", 15, 120, 15, 15, format="%d days")
+            period = st.slider(
+                "How many periods would you like to forecast into the future?",
+                15,
+                120,
+                15,
+                15,
+                format="%d days",
+            )
+            ticker_obj = get_ticker_object(ticker)
+            ticker_info = ticker_obj.info
+
             train_df = load_prediction_data(ticker)
             pr_ob = predict(train_df)
-            fig = pr_ob.prediction(int(period))
+            fig, fig2, fig3 = pr_ob.prediction(int(period))
             fig.update_layout(
                 title=f"Prediction for {ticker_info['longName']}",
                 yaxis_title="Adj Close Price",
                 xaxis_title="Date",
             )
+            """
+            #### The next visual shows the actual (black dots) and predicted (blue line) values over time.
+            """
             st.plotly_chart(fig, use_container_width=True)
+            """ Put something"""
+            st.write(fig3)
+            """
+            #### The next few visuals show a high level trend of predicted values.
+            """
+            st.write(fig2)
+        if choose_options_personalized == "Analysis":
+            """Portfolio Summary"""
+            fig_1, fig_2, fig_3, fig_4, fig_5 = analysis()
+            st.plotly_chart(fig_1, use_container_width=True)
+            st.plotly_chart(fig_2, use_container_width=True)
+            st.plotly_chart(fig_3, use_container_width=True)
+            st.plotly_chart(fig_4, use_container_width=True)
+            st.plotly_chart(fig_5, use_container_width=True)
+
+            checkbox_monte = st.checkbox(
+                "Select this box if you want run  Monte Carlo simulation"
+            )
+            if checkbox_monte:
+                simulation = st.slider(
+                    "How many simulation  would you like to run?",
+                    1000,
+                    15000,
+                    3000,
+                    500,
+                    format="%d days",
+                )
+                df_with_stocks = load_data(
+                    all_tickers, start="2015-01-01", end=datetime.today()
+                )["Adj Close"]
+                fig, max_sharpe_port, min_vol_port = monte(
+                    df_with_stocks, all_tickers, simulation
+                )
+                st.pyplot(fig)
+                """
+                ### Summary of portfolio and weight of stocks where sharpe ratio is the highest(Red Star)
+                """
+                st.dataframe(max_sharpe_port.to_frame().T)
+                """
+                ### Summary of portfolio and weight of stocks that has the low volatility (Green Star)
+                """
+                st.dataframe(min_vol_port.to_frame().T)
     else:
         st.title("Sorry! I couldn't find any data, please update personal stock list")

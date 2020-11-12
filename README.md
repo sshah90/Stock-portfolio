@@ -15,8 +15,8 @@ These instructions will cover usage information about running app locally.
 
 ### Build Image
 ```bash
-git clone https://github.com/sshah90/stock-portfolio.git
-cd stock-portfolio/
+git clone https://github.com/sshah90/Stock-portfolio.git
+cd Stock-portfolio/
 docker build -t stock:1.0.0 .
 ```
 ### Run Image (Tested in Mac only)
