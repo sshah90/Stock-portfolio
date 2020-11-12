@@ -36,7 +36,7 @@ If everything works fine then you should able to see dashboard at `localhost:850
 
 ### Running without Docker
 
-This code base only work with `Python >= 3.7.4`.
+This code base only work with `Python >= 3.7.0`.
 
 After cloning repo, run below commands
 
