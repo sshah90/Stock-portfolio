@@ -17,6 +17,9 @@ class predict(object):
     def prediction(self, period):
         self.model.fit(self.prophet_df)
         future = self.model.make_future_dataframe(periods=period)
+        # Eliminate weekend from future dataframe
+        future['day'] = future['ds'].dt.weekday
+        future = future[future['day']<=4]
         forecast = self.model.predict(future)
         fig = plot_plotly(self.model, forecast)
         fig2 = self.model.plot_components(forecast)

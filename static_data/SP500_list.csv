@@ -53,7 +53,7 @@ AIV,Apartment Investment & Management,Real Estate
 AAPL,Apple Inc.,Information Technology
 AMAT,Applied Materials Inc.,Information Technology
 APTV,Aptiv Plc,Consumer Discretionary
-ADM,Archer-Daniels-Midland Co,Consumer Staples
+ADM,Archer Daniels Midland Co,Consumer Staples
 ARNC,Arconic Inc.,Industrials
 AJG,Arthur J. Gallagher & Co.,Financials
 AIZ,Assurant Inc.,Financials
@@ -80,9 +80,9 @@ BWA,BorgWarner,Consumer Discretionary
 BXP,Boston Properties,Real Estate
 BSX,Boston Scientific,Health Care
 BHF,Brighthouse Financial Inc,Financials
-BMY,Bristol-Myers Squibb,Health Care
+BMY,Bristol Myers Squibb,Health Care
 AVGO,Broadcom,Information Technology
-BF.B,Brown-Forman Corp.,Consumer Staples
+BF.B,Brown Forman Corp.,Consumer Staples
 CHRW,C. H. Robinson Worldwide,Industrials
 CA,"CA, Inc.",Information Technology
 COG,Cabot Oil & Gas,Energy
@@ -118,9 +118,9 @@ CFG,Citizens Financial Group,Financials
 CTXS,Citrix Systems,Information Technology
 CME,CME Group Inc.,Financials
 CMS,CMS Energy,Utilities
-KO,Coca-Cola Company (The),Consumer Staples
+KO,Coca Cola Company (The),Consumer Staples
 CTSH,Cognizant Technology Solutions,Information Technology
-CL,Colgate-Palmolive,Consumer Staples
+CL,Colgate Palmolive,Consumer Staples
 CMCSA,Comcast Corp.,Consumer Discretionary
 CMA,Comerica Inc.,Financials
 CAG,Conagra Brands,Consumer Staples
@@ -203,7 +203,7 @@ F,Ford Motor,Consumer Discretionary
 FTV,Fortive Corp,Industrials
 FBHS,Fortune Brands Home & Security,Industrials
 BEN,Franklin Resources,Financials
-FCX,Freeport-McMoRan Inc.,Materials
+FCX,Freeport McMoRan Inc.,Materials
 GPS,Gap Inc.,Consumer Discretionary
 GRMN,Garmin Ltd.,Consumer Discretionary
 IT,Gartner Inc,Information Technology
@@ -220,7 +220,7 @@ GT,Goodyear Tire & Rubber,Consumer Discretionary
 GWW,Grainger (W.W.) Inc.,Industrials
 HAL,Halliburton Co.,Energy
 HBI,Hanesbrands Inc,Consumer Discretionary
-HOG,Harley-Davidson,Consumer Discretionary
+HOG,Harley Davidson,Consumer Discretionary
 HRS,Harris Corporation,Information Technology
 HIG,Hartford Financial Svc.Gp.,Financials
 HAS,Hasbro Inc.,Consumer Discretionary
@@ -245,7 +245,7 @@ INFO,IHS Markit Ltd.,Industrials
 ITW,Illinois Tool Works,Industrials
 ILMN,Illumina Inc,Health Care
 INCY,Incyte,Health Care
-IR,Ingersoll-Rand PLC,Industrials
+IR,Ingersoll Rand PLC,Industrials
 INTC,Intel Corp.,Information Technology
 ICE,Intercontinental Exchange,Financials
 IBM,International Business Machines,Information Technology
@@ -268,15 +268,15 @@ JNPR,Juniper Networks,Information Technology
 KSU,Kansas City Southern,Industrials
 K,Kellogg Co.,Consumer Staples
 KEY,KeyCorp,Financials
-KMB,Kimberly-Clark,Consumer Staples
+KMB,Kimberly Clark,Consumer Staples
 KIM,Kimco Realty,Real Estate
 KMI,Kinder Morgan,Energy
-KLAC,KLA-Tencor Corp.,Information Technology
+KLAC,KLA Tencor Corp.,Information Technology
 KSS,Kohl's Corp.,Consumer Discretionary
 KHC,Kraft Heinz Co,Consumer Staples
 KR,Kroger Co.,Consumer Staples
 LB,L Brands Inc.,Consumer Discretionary
-LLL,L-3 Communications Holdings,Industrials
+LLL,L 3 Communications Holdings,Industrials
 LH,Laboratory Corp. of America Holding,Health Care
 LRCX,Lam Research,Information Technology
 LEG,Leggett & Platt,Consumer Discretionary
@@ -312,7 +312,7 @@ KORS,Michael Kors Holdings,Consumer Discretionary
 MCHP,Microchip Technology,Information Technology
 MU,Micron Technology,Information Technology
 MSFT,Microsoft Corp.,Information Technology
-MAA,Mid-America Apartments,Real Estate
+MAA,Mid America Apartments,Real Estate
 MHK,Mohawk Industries,Consumer Discretionary
 TAP,Molson Coors Brewing Company,Consumer Staples
 MDLZ,Mondelez International,Consumer Staples
@@ -353,7 +353,7 @@ OKE,ONEOK,Energy
 ORCL,Oracle Corp.,Information Technology
 PCAR,PACCAR Inc.,Industrials
 PKG,Packaging Corporation of America,Materials
-PH,Parker-Hannifin,Industrials
+PH,Parker Hannifin,Industrials
 PAYX,Paychex Inc.,Information Technology
 PYPL,PayPal,Information Technology
 PNR,Pentair Ltd.,Industrials
@@ -409,11 +409,11 @@ SLB,Schlumberger Ltd.,Energy
 STX,Seagate Technology,Information Technology
 SEE,Sealed Air,Materials
 SRE,Sempra Energy,Utilities
-SHW,Sherwin-Williams,Materials
+SHW,Sherwin Williams,Materials
 SPG,Simon Property Group Inc,Real Estate
 SWKS,Skyworks Solutions,Information Technology
 SLG,SL Green Realty,Real Estate
-SNA,Snap-On Inc.,Consumer Discretionary
+SNA,Snap On Inc.,Consumer Discretionary
 SO,Southern Co.,Utilities
 LUV,Southwest Airlines,Industrials
 SWK,Stanley Black & Decker,Consumer Discretionary
@@ -428,7 +428,7 @@ SYF,Synchrony Financial,Financials
 SNPS,Synopsys Inc.,Information Technology
 SYY,Sysco Corp.,Consumer Staples
 TROW,T. Rowe Price Group,Financials
-TTWO,Take-Two Interactive,Information Technology
+TTWO,Take Two Interactive,Information Technology
 TPR,"Tapestry, Inc.",Consumer Discretionary
 TGT,Target Corp.,Consumer Discretionary
 TEL,TE Connectivity Ltd.,Information Technology
@@ -451,8 +451,8 @@ TSS,Total System Services,Information Technology
 TSCO,Tractor Supply Company,Consumer Discretionary
 TDG,TransDigm Group,Industrials
 TRIP,TripAdvisor,Consumer Discretionary
-FOXA,Twenty-First Century Fox Class A,Consumer Discretionary
-FOX,Twenty-First Century Fox Class B,Consumer Discretionary
+FOXA,Twenty First Century Fox Class A,Consumer Discretionary
+FOX,Twenty First Century Fox Class B,Consumer Discretionary
 TSN,Tyson Foods,Consumer Staples
 USB,U.S. Bancorp,Financials
 UDR,UDR Inc,Real Estate
@@ -479,7 +479,7 @@ VIAB,Viacom Inc.,Consumer Discretionary
 V,Visa Inc.,Information Technology
 VNO,Vornado Realty Trust,Real Estate
 VMC,Vulcan Materials,Materials
-WMT,Wal-Mart Stores,Consumer Staples
+WMT,Wal Mart Stores,Consumer Staples
 WBA,Walgreens Boots Alliance,Consumer Staples
 WM,Waste Management Inc.,Industrials
 WAT,Waters Corporation,Health Care

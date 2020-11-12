@@ -468,25 +468,21 @@ def analysis():
     trace1 = go.Bar(
         x = merged_portfolio_sp_latest_YTD_sp_closing_high['Ticker'],
         y = merged_portfolio_sp_latest_YTD_sp_closing_high['Cum Invst'],
-        # mode = 'lines+markers',
         name = 'Cum Invst')
 
     trace2 = go.Bar(
         x = merged_portfolio_sp_latest_YTD_sp_closing_high['Ticker'],
         y = merged_portfolio_sp_latest_YTD_sp_closing_high['Cum SP Returns'],
-        # mode = 'lines+markers',
         name = 'Cum SP500 Returns')
 
     trace3 = go.Bar(
         x = merged_portfolio_sp_latest_YTD_sp_closing_high['Ticker'],
         y = merged_portfolio_sp_latest_YTD_sp_closing_high['Cum Ticker Returns'],
-        # mode = 'lines+markers',
         name = 'Cum Ticker Returns')
 
     trace4 = go.Scatter(
         x = merged_portfolio_sp_latest_YTD_sp_closing_high['Ticker'],
         y = merged_portfolio_sp_latest_YTD_sp_closing_high['Cum Ticker ROI Mult'],
-        # mode = 'lines+markers',
         name = 'Cum ROI Mult'
         , yaxis='y2')
 

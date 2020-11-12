@@ -20,7 +20,7 @@ from PIL import Image
 from info import info_list
 from news import news
 from predict import predict
-from analysis import analysis,monte
+from analysis import analysis, monte
 
 yf.pdr_override()
 st.set_option("deprecation.showPyplotGlobalUse", False)
@@ -133,7 +133,7 @@ def set_pub():
     rc("font", weight="bold")  # bold fonts are easier to see
     rc("grid", c="0.5", ls="-", lw=0.5)
     rc("figure", figsize=(10, 8))
-    plt.style.use("bmh")
+    plt.style.use('seaborn-whitegrid')
     rc("lines", linewidth=1.3, color="b")
 
 
@@ -169,16 +169,23 @@ def plotData(ticker):
     ax[1].set_xlim(ax[1].get_xlim()[0] - 10, ax[1].get_xlim()[1] + 10)
     plt.tight_layout()
     ax[1].grid(True)
-    st.pyplot()
+    st.pyplot(plt)
+
 
 
 def homepage():
     sp500_list = pd.read_csv("static_data/SP500_list.csv")
-    ticker = st.selectbox(
-        "Select the ticker if present in the S&P 500 index",
-        sp500_list["Symbol"],
-        index=30,
-    ).upper()
+
+    ticker = (
+        st.selectbox(
+            "Select the ticker if present in the S&P 500 index",
+            sp500_list["Symbol"] + "(" + sp500_list["Name"] + ")",
+            # format_func = format_of_list,
+            index=10,
+        )
+        .split("(")[0]
+        .upper()
+    )
 
     checkbox_noSP = st.checkbox(
         "Select this box to write the ticker (if not present in the S&P 500 list). \
@@ -267,16 +274,16 @@ if choose_options == "Personalized Portfolio":
         f = open("data/data.json")
         all_stock_metadata = json.load(f)["stock_list"]
         all_tickers = [tickers["ticker"] for tickers in all_stock_metadata]
-        ticker = st.selectbox(
-            "Please Select the Ticker from your stock",
-            all_tickers,
-            index=0,
-        ).upper()
         choose_options_personalized = st.sidebar.radio(
             "Options",
             ["Predictions", "Analysis"],
         )
         if choose_options_personalized == "Predictions":
+            ticker = st.selectbox(
+                "Please Select the Ticker from your stock",
+                all_tickers,
+                index=0,
+            ).upper()
             period = st.slider(
                 "How many periods would you like to forecast into the future?",
                 15,
@@ -300,20 +307,20 @@ if choose_options == "Personalized Portfolio":
             #### The next visual shows the actual (black dots) and predicted (blue line) values over time.
             """
             st.plotly_chart(fig, use_container_width=True)
-            """ Put something"""
-            st.write(fig3)
+
             """
             #### The next few visuals show a high level trend of predicted values.
+            
             """
             st.write(fig2)
         if choose_options_personalized == "Analysis":
-            """Portfolio Summary"""
+            """### Portfolio Summary"""
             fig_1, fig_2, fig_3, fig_4, fig_5 = analysis()
-            st.plotly_chart(fig_1, use_container_width=True)
-            st.plotly_chart(fig_2, use_container_width=True)
-            st.plotly_chart(fig_3, use_container_width=True)
-            st.plotly_chart(fig_4, use_container_width=True)
-            st.plotly_chart(fig_5, use_container_width=True)
+            st.plotly_chart(fig_1,use_container_width=True)
+            st.plotly_chart(fig_2,use_container_width=True)
+            st.plotly_chart(fig_3,use_container_width=True)
+            st.plotly_chart(fig_4,use_container_width=True)
+            st.plotly_chart(fig_5,use_container_width=True)
 
             checkbox_monte = st.checkbox(
                 "Select this box if you want run  Monte Carlo simulation"
@@ -335,7 +342,7 @@ if choose_options == "Personalized Portfolio":
                 )
                 st.pyplot(fig)
                 """
-                ### Summary of portfolio and weight of stocks where sharpe ratio is the highest(Red Star)
+                ### Summary of portfolio and weight of stocks where sharpe ratio is the highest (Red Star)
                 """
                 st.dataframe(max_sharpe_port.to_frame().T)
                 """
