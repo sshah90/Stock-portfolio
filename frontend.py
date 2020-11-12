@@ -97,7 +97,7 @@ def valid_dates(date_list: List) -> List:
             st.error("Please enter correct date")
             return False
 
-        if convert <= datetime(2019, 1, 1, 0, 0).date():
+        if convert <= datetime(2016, 1, 1, 0, 0).date():
             st.error("Please insert a date posterior to 1st January 2019")
             return False
     return True
@@ -133,7 +133,7 @@ def set_pub():
     rc("font", weight="bold")  # bold fonts are easier to see
     rc("grid", c="0.5", ls="-", lw=0.5)
     rc("figure", figsize=(10, 8))
-    plt.style.use('seaborn-whitegrid')
+    plt.style.use("seaborn-whitegrid")
     rc("lines", linewidth=1.3, color="b")
 
 
@@ -172,18 +172,17 @@ def plotData(ticker):
     st.pyplot(plt)
 
 
-
 def homepage():
     sp500_list = pd.read_csv("static_data/SP500_list.csv")
 
     ticker = (
         st.selectbox(
             "Select the ticker if present in the S&P 500 index",
-            sp500_list["Symbol"] + "(" + sp500_list["Name"] + ")",
+            sp500_list["Symbol"] + " (" + sp500_list["Name"] + ")",
             # format_func = format_of_list,
-            index=10,
+            index=30,
         )
-        .split("(")[0]
+        .split(" (")[0]
         .upper()
     )
 
@@ -199,6 +198,12 @@ def homepage():
     return ticker
 
 
+st.set_page_config(
+    page_title="Stock Portfolio",
+    initial_sidebar_state="collapsed",
+    page_icon=":dollar:",
+)
+
 if os.path.exists("data/data.json"):
     f = open("data/data.json")
     data = json.load(f)
@@ -206,6 +211,9 @@ if os.path.exists("data/data.json"):
 else:
     st.sidebar.header(f"Welcome Stranger!\n")
 
+image = Image.open("static_data/stock.jpeg")
+
+st.sidebar.image(image, caption="", use_column_width=True)
 st.sidebar.subheader("Choose the option to visualize")
 
 choose_options = st.sidebar.radio(
@@ -316,11 +324,11 @@ if choose_options == "Personalized Portfolio":
         if choose_options_personalized == "Analysis":
             """### Portfolio Summary"""
             fig_1, fig_2, fig_3, fig_4, fig_5 = analysis()
-            st.plotly_chart(fig_1,use_container_width=True)
-            st.plotly_chart(fig_2,use_container_width=True)
-            st.plotly_chart(fig_3,use_container_width=True)
-            st.plotly_chart(fig_4,use_container_width=True)
-            st.plotly_chart(fig_5,use_container_width=True)
+            st.plotly_chart(fig_1, use_container_width=True)
+            st.plotly_chart(fig_2, use_container_width=True)
+            st.plotly_chart(fig_3, use_container_width=True)
+            st.plotly_chart(fig_4, use_container_width=True)
+            st.plotly_chart(fig_5, use_container_width=True)
 
             checkbox_monte = st.checkbox(
                 "Select this box if you want run  Monte Carlo simulation"
